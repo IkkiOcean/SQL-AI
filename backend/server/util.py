@@ -33,8 +33,8 @@ def connect_to_sql(db_stats, url):
 def get_chain(db, question):
     os.environ['LANGCHAIN_TRACING_V2']='true'
     os.environ["LANGCHAIN_PROJECT"] = 'Sample Agent Trace'
-    os.environ['LANGCHAIN_API_KEY']='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'
-    os.environ['GOOGLE_API_KEY']='AIzaSyDzjT8EzCPnKRHmUAhLW-D9RvAxT7hbL2M'
+    os.environ['LANGCHAIN_API_KEY']='LANGCHAIN-API-KEY'
+    os.environ['GOOGLE_API_KEY']='GOOGLE-API-KEY'
 
     llm = GoogleGenerativeAI(model="gemini-pro")   
     
