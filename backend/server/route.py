@@ -30,7 +30,7 @@ def connect():
         return "Error connecting to database", 400
     return "Connected to database", 200
 
-@app.route('/', methods=['GET'])
+@app.route('/.')
 @cross_origin()
 def start():
     return "SQL AI Backend Working", 200
