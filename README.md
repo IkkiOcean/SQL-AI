@@ -2,6 +2,9 @@
 
 This project is an AI-powered Retrieval-Augmented Generation (RAG) application that enables users to generate SQL queries from natural language input. The application simplifies database interaction by eliminating the need for writing manual SQL queries. Users can provide the necessary database credentials, and the AI handles the rest.
 
+### Click on Thumbnail to watch working
+
+[![Watch the video](./images/1726309989985.jpeg)](https://www.youtube.com/watch?v=AqK79Wb-gNs)
 ## Features
 
 - **Natural Language to SQL**: Generate SQL queries using natural language, no SQL knowledge required.
