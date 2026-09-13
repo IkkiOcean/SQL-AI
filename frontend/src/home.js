@@ -329,10 +329,7 @@ const Home = () => {
         {/* Navbar */}
         <nav className="navbar">
           <div className="nav-brand">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-              <circle cx="11" cy="11" r="10" stroke="#FF4D1C" strokeWidth="1.5" />
-              <path d="M7 8h8M7 11h8M7 14h5" stroke="#FF4D1C" strokeWidth="1.5" strokeLinecap="round" />
-            </svg>
+            <img src="/logo.png" alt="SQL-AI Logo" style={{ width: 28, height: 28, borderRadius: 6, objectFit: "cover" }} />
             <span className="brand-name">SQL<span className="brand-accent">-AI</span></span>
           </div>
           <div className="nav-links">
@@ -495,10 +492,7 @@ const Home = () => {
       {/* Navbar */}
       <nav className="navbar workspace-nav">
         <div className="nav-brand">
-          <svg width="20" height="20" viewBox="0 0 22 22" fill="none">
-            <circle cx="11" cy="11" r="10" stroke="#FF4D1C" strokeWidth="1.5" />
-            <path d="M7 8h8M7 11h8M7 14h5" stroke="#FF4D1C" strokeWidth="1.5" strokeLinecap="round" />
-          </svg>
+          <img src="/logo.png" alt="SQL-AI Logo" style={{ width: 26, height: 26, borderRadius: 6, objectFit: "cover" }} />
           <span className="brand-name">SQL<span className="brand-accent">-AI</span></span>
         </div>
         <div className="nav-center">
