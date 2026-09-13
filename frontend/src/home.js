@@ -9,7 +9,7 @@ import "./home.css";
 /* ─────────────────────────────────────────────
    CONSTANTS & HELPERS
 ───────────────────────────────────────────── */
-const API = "http://127.0.0.1:5000";
+const API = process.env.REACT_APP_API_URL || "http://127.0.0.1:5000";
 
 const CHART_COLORS = [
   "#FF4D1C", "#FF7A00", "#FF9A3C", "#FFB347",
