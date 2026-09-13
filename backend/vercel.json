@@ -1,16 +1,15 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "backend/Dockerfile",
-        "use": "@vercel/docker"
-      }
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "/"
-      }
-    ]
-  }
-  
+  "version": 2,
+  "builds": [
+    {
+      "src": "backend/run.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "backend/run.py"
+    }
+  ]
+}
