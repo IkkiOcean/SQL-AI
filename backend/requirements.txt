@@ -1,5 +1,11 @@
 Flask==3.1.0
 Flask-Cors==5.0.0
-langchain==0.3.8
-langchain-community==0.3.8
-langchain-google-genai==2.0.5
+langchain>=0.2.0
+langchain-community>=0.2.0
+langchain-google-genai>=1.0.0
+python-dotenv>=1.0.1
+pymysql>=1.1.1
+cryptography>=42.0.0
+SQLAlchemy>=2.0.0
+pandas>=2.0.0
+

@@ -1,95 +1,96 @@
-# SQL AI RAG Application
+# SQL AI Explorer 🚀
 
-This project is an AI-powered Retrieval-Augmented Generation (RAG) application that enables users to generate SQL queries from natural language input. The application simplifies database interaction by eliminating the need for writing manual SQL queries. Users can provide the necessary database credentials, and the AI handles the rest.
+An autonomous Natural Language to SQL Analytics Agent built with **Flask**, **Google Gemini**, **LangChain**, and **React**. Designed for production demonstrations, portfolio reviews, and interactive data exploration.
 
-### Click on Thumbnail to watch working
+---
 
-[![Watch the video](./images/1726309989985.jpeg)](https://www.youtube.com/watch?v=AqK79Wb-gNs)
-## Features
+## 🌟 Key Highlights & AI Engineering Capabilities
 
-- **Natural Language to SQL**: Generate SQL queries using natural language, no SQL knowledge required.
-- **Seamless Database Connection**: Simply input your database credentials to connect and start querying.
-- **Real-time Query Generation**: Get SQL queries in real-time for efficient data retrieval and manipulation.
-- **User-Friendly Interface**: Built with React.js for an intuitive, responsive frontend.
-- **Secure and Reliable**: Only the necessary credentials are required to securely connect to the database.
+- **Zero-Friction 1-Click Demo**: Includes a pre-populated SQLite E-Commerce database (`customers`, `orders`, `order_items`, `products`, `categories`) so evaluators can test instantly without setting up MySQL.
+- **Custom Database Support**: Connect seamlessly to any MySQL server or custom SQLAlchemy URI (PostgreSQL, SQLite, etc.).
+- **Self-Explanatory UX**: Displays real-time schema table badges and interactive one-click starter questions.
+- **Full Execution Transparency**: Returns and renders:
+  1. **Executive Natural Language Summary**
+  2. **Generated SQL Query** (with 1-click clipboard copy)
+  3. **Interactive Tabular Data Grid** (showing records returned directly from the database)
+  4. **Query Execution Time Metrics**
+- **Safety & Mutation Guardrails**: AST & regex validation ensures only safe read-only (`SELECT`, `WITH`) queries are executed, blocking malicious injections (`DROP`, `DELETE`, `UPDATE`, `ALTER`).
+- **Autonomous Self-Correction**: If a generated query encounters a syntax error, the agent feeds the error traceback back to Gemini to self-heal and re-execute.
 
-## Tech Stack
+---
 
-- **Backend**: Flask
-- **Frontend**: React.js
-- **Natural Language Processing**: Langchain
-- **AI Models**: Gemini Pro
-- **Database**: SQLite
+## 🛠️ Tech Stack
 
-## Installation
+- **Frontend**: React.js 18, Material UI, Modern Glassmorphism CSS
+- **Backend API**: Python 3.12, Flask, Flask-CORS
+- **AI & LLM Orchestration**: LangChain, Google Gemini (`gemini-1.5-flash`), Python-Dotenv
+- **Databases**: SQLite (bundled demo), MySQL (via PyMySQL), SQLAlchemy
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/IkkiOcesn/SQL-AI.git
-   ```
+---
 
-2. **Navigate to the project directory**:
-   ```bash
-   cd SQL-AI
-   ```
+## ⚡ Quickstart Guide
 
-3. **Backend Setup**:
-    - Navigate to the backend directory:
-        ```bash
-        cd backend
-        ```
-   - Create a virtual environment:
-     ```bash
-     python3 -m venv venv
-     source venv/bin/activate  # for Linux/macOS
-     venv\Scripts\activate  # for Windows
-     ```
-   - Install the required Python dependencies:
-     ```bash
-     pip install -r requirements.txt
-     ```
+### 1. Backend Setup
 
-4. **Frontend Setup**:
-   - Navigate to the frontend directory:
-     ```bash
-     cd frontend
-     ```
-   - Install the necessary dependencies:
-     ```bash
-     npm install
-     ```
+```bash
+cd backend
 
-## Usage
+# Create & activate virtual environment (optional but recommended)
+python3 -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-1. **Start the Backend**:
-   ```bash
-   cd backend
-   python run.py
-   ```
+# Install dependencies
+pip install -r requirements.txt
 
-2. **Start the Frontend**:
-   ```bash
-   cd frontend
-   npm start
-   ```
+# Configure your Google Gemini API Key in .env
+# Get a free key at: https://aistudio.google.com/app/apikey
+cp .env.example .env
+# Edit .env and set GOOGLE_API_KEY=your_actual_key_here
 
-3. **Access the Application**:
-   - Once both backend and frontend are running, open your browser and navigate to:
-     ```
-     http://localhost:3000
-     ```
+# Start the Flask API server
+python3 run.py
+```
+*Backend runs on `http://127.0.0.1:5000`*
 
-4. **Provide Database Credentials**:
-   - Input the necessary credentials for your database (e.g., SQLite connection) and start generating SQL queries using natural language.
+### 2. Frontend Setup
 
-## Example
+```bash
+cd frontend
 
-- Input: "Show me all the orders from customers in California"
+# Install node dependencies
+npm install --legacy-peer-deps
 
-## Contributing
+# Start the React development server
+npm start
+```
+*Frontend opens on `http://localhost:3000`*
 
-Feel free to submit issues or pull requests. All contributions are welcome!
+---
 
-## License
+## 💡 How to Demo
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+1. Open `http://localhost:3000` in your browser.
+2. Select **"Pre-Loaded Sample E-Commerce DB"** and click **"Launch Demo with Sample DB"**.
+3. Use the sidebar to inspect tables in the schema (`customers`, `orders`, `products`, etc.).
+4. Click any of the suggested prompt pills:
+   - *"What is the total revenue generated across all completed orders?"*
+   - *"Who are the top 5 customers by total spending and where are they from?"*
+   - *"Which product categories generate the highest total sales?"*
+5. Or type any freeform question in plain English!
+6. Inspect the generated SQL, the data table rows, and the AI executive summary.
+
+---
+
+## 🔒 Security Guardrails
+
+The application intercepts all generated SQL before execution:
+```python
+# Prohibits DROP, DELETE, INSERT, UPDATE, ALTER, TRUNCATE, etc.
+is_safe_read_only_query(sql_query) -> bool
+```
+Any attempts to modify or delete data are rejected with an explicit security alert.
+
+---
+
+## 📄 License
+MIT License

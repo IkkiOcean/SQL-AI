@@ -1,3 +1,35 @@
-*.venv
-*venv
-*node_modules
+# Python & Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Environment Variables & Secrets
+.env
+.env.local
+.env.*.local
+
+# Node & Frontend
+node_modules/
+/frontend/node_modules/
+/frontend/build/
+.npm
+.eslintcache
+
+# Dynamic uploads & databases
+backend/uploads/
+*.db
+*.sqlite
+*.sqlite3
+!backend/sample_ecommerce.db
+
+# macOS & IDEs
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
